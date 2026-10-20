@@ -1,0 +1,17 @@
+[
+ {"question":"What was HPG's revenue in 2023?","type":"retrieval"},
+ {"question":"What was VNM's total assets in 2024?","type":"retrieval"},
+ {"question":"What was FPT's net profit in 2025?","type":"retrieval"},
+ {"question":"What was HPG's revenue growth from 2023 to 2024?","type":"calculation"},
+ {"question":"What was VNM's net profit margin in 2025?","type":"calculation"},
+ {"question":"What was FPT's ROE in 2025?","type":"calculation"},
+ {"question":"Compare 2025 revenue of FPT, VNM and HPG","type":"comparison"},
+ {"question":"Which company had the highest net profit margin in 2025?","type":"comparison"},
+ {"question":"Compare HPG and FPT revenue growth","type":"comparison"},
+ {"question":"Did HPG's operating cash flow cover capital expenditure?","type":"cash_flow"},
+ {"question":"How did VNM's operating cash flow change?","type":"cash_flow"},
+ {"question":"What are HPG's major business segments?","type":"context"},
+ {"question":"What relevant risks are disclosed in the HPG report?","type":"context"},
+ {"question":"HPG có bao nhiêu tổng tài sản năm 2025?","type":"bilingual"},
+ {"question":"So sánh biên lợi nhuận ròng của FPT và VNM năm 2025.","type":"bilingual"}
+]

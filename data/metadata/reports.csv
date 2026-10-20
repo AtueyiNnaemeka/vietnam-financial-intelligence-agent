@@ -1,0 +1,10 @@
+ticker,company,year,report_type,consolidated,audited,currency,unit,source_url,local_filename,document_date
+FPT,FPT Corporation,2023,Annual financial statements,true,true,VND,VND,,data/raw/FPT/FPT_2023.pdf,
+FPT,FPT Corporation,2024,Annual financial statements,true,true,VND,VND,,data/raw/FPT/FPT_2024.pdf,
+FPT,FPT Corporation,2025,Annual financial statements,true,true,VND,VND,,data/raw/FPT/FPT_2025.pdf,
+VNM,Vietnam Dairy Products Joint Stock Company,2023,Annual financial statements,true,true,VND,VND,,data/raw/VNM/VNM_2023.pdf,
+VNM,Vietnam Dairy Products Joint Stock Company,2024,Annual financial statements,true,true,VND,VND,,data/raw/VNM/VNM_2024.pdf,
+VNM,Vietnam Dairy Products Joint Stock Company,2025,Annual financial statements,true,true,VND,VND,,data/raw/VNM/VNM_2025.pdf,
+HPG,Hoa Phat Group Joint Stock Company,2023,Annual financial statements,true,true,VND,VND,,data/raw/HPG/HPG_2023.pdf,
+HPG,Hoa Phat Group Joint Stock Company,2024,Annual financial statements,true,true,VND,VND,,data/raw/HPG/HPG_2024.pdf,
+HPG,Hoa Phat Group Joint Stock Company,2025,Annual financial statements,true,true,VND,VND,,data/raw/HPG/HPG_2025.pdf,

@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+.DS_Store
+# Source reports may have redistribution restrictions
+/data/raw/**/*.pdf
+/data/processed/*
+!/data/processed/.gitkeep
