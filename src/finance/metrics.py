@@ -12,10 +12,17 @@ def operating_margin(operating_profit, revenue):
     r = _ratio(operating_profit, revenue); return None if r is None else r * 100
 def net_profit_margin(net_profit, revenue):
     r = _ratio(net_profit, revenue); return None if r is None else r * 100
-def roa(net_profit, total_assets):
-    r = _ratio(net_profit, total_assets); return None if r is None else r * 100
-def roe(net_profit, total_equity):
-    r = _ratio(net_profit, total_equity); return None if r is None else r * 100
+def roa(net_profit, average_assets):
+    """Return on assets using average opening and closing assets for the period."""
+    r = _ratio(net_profit, average_assets); return None if r is None else r * 100
+def roe(net_profit, average_equity):
+    """Return on equity using average opening and closing equity for the period."""
+    r = _ratio(net_profit, average_equity); return None if r is None else r * 100
+
+def average_balance(opening_balance, closing_balance):
+    if opening_balance is None or closing_balance is None:
+        return None
+    return (opening_balance + closing_balance) / 2
 def liabilities_to_equity(liabilities, equity): return _ratio(liabilities, equity)
 def borrowings_to_equity(short_borrowings, long_borrowings, equity):
     if short_borrowings is None or long_borrowings is None: return None

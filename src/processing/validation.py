@@ -22,6 +22,12 @@ def validate_income_statement(metrics):
         return "unverified", "revenue, COGS or gross profit missing"
     return check_equation(revenue - cogs, gross)
 
+def validate_net_revenue(metrics):
+    sales, deductions, net_revenue = (metrics.get(k) for k in ("gross_sales", "revenue_deductions", "net_revenue"))
+    if sales is None or deductions is None or net_revenue is None:
+        return "unverified", "gross sales, revenue deductions or net revenue missing"
+    return check_equation(sales - deductions, net_revenue)
+
 def validate_asset_components(metrics):
     current, noncurrent, total=(metrics.get(k) for k in ("current_assets","noncurrent_assets","total_assets"))
     if current is None or noncurrent is None or total is None:

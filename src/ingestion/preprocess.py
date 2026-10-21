@@ -6,7 +6,7 @@ import pandas as pd
 from src.ingestion.pdf_loader import find_report, extract_page_text
 from src.ingestion.table_extraction import extract_tables
 from src.processing.cleaning import canonical_rows
-from src.processing.validation import validate_balance_sheet, validate_income_statement, validate_asset_components, validate_cash_flow
+from src.processing.validation import validate_balance_sheet, validate_income_statement, validate_net_revenue, validate_asset_components, validate_cash_flow
 
 COMPANIES={"FPT":"FPT Corporation","VNM":"Vietnam Dairy Products Joint Stock Company","HPG":"Hoa Phat Group Joint Stock Company"}
 
@@ -31,6 +31,7 @@ def rebuild_metrics(out_dir="data/processed"):
     check_specs=(("balance_sheet",validate_balance_sheet,("total_assets","total_liabilities","total_equity")),
                  ("asset_components",validate_asset_components,("current_assets","noncurrent_assets","total_assets")),
                  ("income_statement",validate_income_statement,("net_revenue","cost_of_goods_sold","gross_profit")),
+                 ("net_revenue_reconciliation",validate_net_revenue,("gross_sales","revenue_deductions","net_revenue")),
                  ("cash_flow",validate_cash_flow,("opening_cash","net_change_cash","closing_cash")))
     for ticker,company in COMPANIES.items():
       for year in (2023,2024,2025):

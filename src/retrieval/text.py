@@ -23,6 +23,13 @@ STOPWORDS = {
     "của", "các", "cho", "có", "gì", "là", "nào", "những", "trong", "về",
     "được", "hãy", "cho", "biết", "báo", "cáo", "năm",
 }
+RISK_DISCLOSURE_CONTEXT = (
+    "rủi ro tài chính", "rủi ro tín dụng", "rủi ro thanh khoản", "rủi ro thị trường",
+    "rủi ro tỷ giá", "rủi ro lãi suất", "quản lý rủi ro", "quản trị rủi ro",
+    "financial risk", "credit risk", "liquidity risk", "market risk",
+    "foreign exchange risk", "interest rate risk", "risk management", "risk exposure",
+    "risk factors", "principal risks", "key risks", "risk mitigation",
+)
 
 
 def _fold(value):
@@ -57,7 +64,7 @@ def _query_concepts(query):
     return concepts
 
 
-def _excerpt(text, concepts, limit=700):
+def _excerpt(text, concepts, limit=1400):
     compact = " ".join(str(text).split())
     searchable = compact.casefold()
     positions = [
@@ -109,6 +116,10 @@ def search_financial_notes(query, ticker=None, year=None, root="data/processed",
 
             normalized_tokens = _tokens(text)
             normalized_text = " ".join(normalized_tokens)
+            folded_query = _fold(query)
+            risk_query = bool(re.search(r"\b(risks?|risk factors?|rui ro|nguy co)\b", folded_query))
+            if risk_query and not any(_fold(phrase) in normalized_text for phrase in RISK_DISCLOSURE_CONTEXT):
+                continue
             matched = 0
             frequency = 0
             for concept in concepts:

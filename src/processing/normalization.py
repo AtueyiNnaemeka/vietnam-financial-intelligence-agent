@@ -19,6 +19,10 @@ def normalize_number(raw: object) -> NumberResult:
         return NumberResult(None, "unverified", "blank or dash")
     neg = s.startswith("(") and s.endswith(")")
     s = s.strip("() ").replace(" ", "")
+    # Tesseract commonly mistakes a printed leading 5 for the section sign in
+    # Vietnamese statement tables (e.g. §3.312...); accept this one glyph only.
+    # Other unexpected characters remain rejected below rather than guessed.
+    s = s.replace("§", "5")
     # Ignore only known currency/unit labels. Arbitrary OCR letters (e.g. S52...) must
     # make the token ambiguous rather than silently turn it into a plausible amount.
     s = re.sub(r"(?i)^\s*(?:VND|VNĐ)\s*|\s*(?:VND|VNĐ)\s*$", "", s)
